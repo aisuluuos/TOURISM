@@ -67,16 +67,16 @@ const Navbar = () => {
 
   return (
     <AppBar position="static" sx={{ bgcolor: "black" }}>
-      <Toolbar sx={{ justifyContent: "space-between", padding: "10px" }}>
+      <Toolbar sx={{ justifyContent: "space-between", padding: "5px 10px" }}>
         {/* Лого */}
         <img
           src={logo}
           alt="Logo"
-          style={{ width: 80, height: "auto", marginRight: "10px" }}
+          style={{ width: 70, height: "auto", marginRight: "10px" }}
         />
 
         {/* Главная */}
-        <Button color="inherit" sx={{ fontSize: "1rem" }}>
+        <Button color="inherit" sx={{ fontSize: "0.9rem" }}>
           Home
         </Button>
 
@@ -94,7 +94,7 @@ const Navbar = () => {
               "&:hover": {
                 backgroundColor: "transparent",
               },
-              fontSize: "1rem",
+              fontSize: "0.9rem",
             }}
           >
             WHERE TO GO <ExpandMoreIcon />
@@ -149,12 +149,12 @@ const Navbar = () => {
         </Box>
 
         {/* О нас */}
-        <Button color="inherit" sx={{ fontSize: "1rem" }}>
+        <Button color="inherit" sx={{ fontSize: "0.9rem" }}>
           About
         </Button>
 
         {/* Админ */}
-        <Button color="inherit" sx={{ fontSize: "1rem" }}>
+        <Button color="inherit" sx={{ fontSize: "0.9rem" }}>
           Admin
         </Button>
 
