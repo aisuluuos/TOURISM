@@ -1,7 +1,12 @@
 import React from "react";
+import Body from "./components/homePage/Body";
 
 const App = () => {
-  return <div></div>;
+  return (
+    <div>
+      <Body />
+    </div>
+  );
 };
 
 export default App;
