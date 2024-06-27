@@ -10,7 +10,7 @@ const ProductList = () => {
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
+  }, []);
 
   const handleChange = (event, value) => {
     setPage(value);
