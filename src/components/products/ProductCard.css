@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --light: #ffe6e6;
+  --dark: #0c0c0c;
+}
+
+.content {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  width: 350px;
+  height: 550px;
+  border-radius: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.content:hover {
+  width: 450px;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark);
+  opacity: 0.6;
+}
+
+.profession_image,
+.profile_image {
+  position: absolute;
+  z-index: -20;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile_detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 12rem;
+  transition: transform 0.5s cubic-bezier(0.23, 0.93, 0.77, 1) 0.01s;
+}
+
+.profile_detail span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light);
+  white-space: nowrap;
+}
+
+.profile_detail p {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light);
+  line-height: 1.2;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.5s cubic-bezier(0.23, 0.93, 0.77, 1) 0.01s;
+}
+
+.profile_quote {
+  min-height: 0;
+  transform: translateY(50%);
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out,
+    transform 0.8s cubic-bezier(0.23, 0.93, 0.77, 1) 0.01s;
+}
+
+.content:hover .wrapper {
+  grid-template-rows: 1fr;
+}
+
+.content:hover .profile_quote {
+  transform: translateY(0);
+  opacity: 1;
+}
