@@ -1,7 +1,12 @@
 import React from "react";
+import AddProduct from "../components/products/AddProduct";
 
 const AdminPage = () => {
-  return <div></div>;
+  return (
+    <div>
+      <AddProduct />
+    </div>
+  );
 };
 
 export default AdminPage;
