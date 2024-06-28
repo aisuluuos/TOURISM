@@ -27,7 +27,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            style={{ width: 90, height: "auto", marginRight: "10px" }}
+            style={{ width: 100, height: "auto", marginRight: "10px" }}
           />
           <Link to={"/"}>
             <Button color="inherit" sx={{ fontSize: "0.9rem", color: "white" }}>
@@ -84,7 +84,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
                               alt="Iceland Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Iceland</div>
@@ -97,7 +103,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/2560px-Flag_of_Kyrgyzstan.svg.png"
                               alt="Kyrgyzstan Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Kyrgyzstan</div>
@@ -110,7 +122,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
                               alt="Japan Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Japan</div>
@@ -123,7 +141,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"
                               alt="Italy Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Italy</div>
@@ -136,7 +160,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg"
                               alt="Georgia Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Georgia</div>
@@ -149,7 +179,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg"
                               alt="Thailand Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Thailand</div>
@@ -162,7 +198,13 @@ const Navbar = () => {
                             <img
                               src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
                               alt="Ukraine Flag"
-                              style={{ width: 30, height: 20, marginRight: 10 }}
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
                             />
                           </div>
                           <div className="menuitemmeta">Ukraine</div>

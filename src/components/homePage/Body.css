@@ -13,7 +13,7 @@ body {
 :root {
   --light: #ffe6e6;
   --dark: #0c0c0c;
-  --bg-color: #000; /* Black background color */
+  --bg-color: #ffffff;
   --gap: 0.5rem;
 }
 

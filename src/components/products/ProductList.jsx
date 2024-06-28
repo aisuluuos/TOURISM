@@ -35,6 +35,7 @@ const ProductList = () => {
         alignItems: "center",
         marginTop: 2,
         marginBottom: 0.5,
+        backgroundColor: "white",
       }}
     >
       <Box
@@ -55,12 +56,13 @@ const ProductList = () => {
         count={Math.ceil(products.length / itemsPerPage)}
         page={page}
         onChange={handleChange}
-        color="primary"
+        color="error"
         sx={{
           display: "flex",
           justifyContent: "center",
           marginTop: 0.5,
           marginBottom: 0.5,
+          color: "white",
         }}
       />
     </Box>

@@ -51,6 +51,7 @@ const SideBar = () => {
         textAlign: "center",
         marginTop: "0.5rem",
         marginBottom: "-1.5rem",
+        backgroundColor: "white",
       }}
     >
       <TextField

@@ -2,6 +2,7 @@
   width: 350px;
   height: 500px;
 }
+
 .dtit {
   text-align: center;
   text-transform: uppercase;
@@ -10,29 +11,63 @@
   font-size: 23px;
   font-weight: 900;
 }
+
 .drcontainer {
   display: flex;
   font-family: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
 }
+
 .legend {
   color: white;
-  padding-left: 50px;
   font-size: 18px;
   padding-top: 20px;
   font-weight: 200;
   padding-bottom: 40px;
   text-transform: uppercase;
+  text-align: center;
+  padding-left: 30px;
 }
+
 .contitem {
   color: white;
   padding-left: 30px;
 }
+
 .href {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: #fff;
   margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.menuitem {
+  cursor: pointer;
+}
+
+.menuitem .image {
+  width: 30px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.menuitemmeta {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 5px;
+  font-weight: 200;
+}
+
+.menuitem .image {
+  filter: brightness(1);
+}
+.menuitem {
+  transition: transform 0.3s ease; /* плавный переход при изменении размера */
+}
+
+.menuitem:hover img {
+  transform: scale(1.6); /* увеличение размера картинки при ховере */
 }

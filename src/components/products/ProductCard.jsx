@@ -39,7 +39,9 @@ const ProductCard = ({ elem }) => {
       </Box>
       <Box className="wrapper">
         <Box className="profile_quote">
-          <Typography component="p">{elem.description}</Typography>
+          <Typography className="desc" component="p">
+            {elem.description}
+          </Typography>
         </Box>
         <Box sx={{ display: "flex", gap: "10px" }}>
           <IconButton color="warning" onClick={handleDetailOpen}>

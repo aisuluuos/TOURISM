@@ -15,8 +15,8 @@
       "image2": "https://www.journalofnomads.com/wp-content/uploads/2019/09/Ala-Kul-Lake-Kyrgyzstan-2-1024x768.jpg",
       "country": "KYRGYZSTAN",
       "description": "A small mountainous country in Central Asia. The mountains are high and wild, sometimes hard to reach and unpredictable. But very beautiful and diverse. The mountains are the main property of Kyrgyzstan and the bulk of tourists come here because of the mountains.",
-      "price": 0,
-      "category": "Europe"
+      "price": 3100,
+      "category": "Asia"
     },
     {
       "id": 3,
@@ -24,7 +24,7 @@
       "image2": "https://th-thumbnailer.cdn-si-edu.com/_riTYrpJ61h1uXR7rgZ6SZU1Xz4=/fit-in/1072x0/filters:focal(3600x2040:3601x2041)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/0c/d7/0cd72b96-17d4-44a5-95c7-6dcdc8788517/7_-_535c1da8-9b12-421c-a350-682d69d7eb48.jpg",
       "country": "ICELAND",
       "description": "Iceland, the land of fire and ice, has become a popular travel destination over the past few years. From the country’s magnificent glaciers, thundering waterfalls and epic natural nighttime displays, it’s easy to see why travelers are escaping to the edge of the world.",
-      "price": 0,
+      "price": 300,
       "category": "Europe"
     },
     {
