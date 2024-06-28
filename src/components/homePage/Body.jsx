@@ -1,116 +1,102 @@
 import React from "react";
 import "./Body.css";
+
+// Пример данных с сервера
+const cardData = [
+  {
+    image1:
+      "https://media.cnn.com/api/v1/images/stellar/prod/230210161917-01-japan-never-traveler-culture-tokyo.jpg?c=16x9&q=h_833,w_1480,c_fill",
+    image2:
+      "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
+    country: "ABOUT",
+  },
+  {
+    image1:
+      "https://media.cnn.com/api/v1/images/stellar/prod/230210161917-01-japan-never-traveler-culture-tokyo.jpg?c=16x9&q=h_833,w_1480,c_fill",
+    image2:
+      "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
+    country: "JAPAN",
+  },
+  {
+    image1:
+      "https://assets3.thrillist.com/v1/image/2783896/792x528/scale;webp=auto;jpeg_quality=60;progressive.jpg",
+    image2:
+      "https://www.journalofnomads.com/wp-content/uploads/2019/09/Ala-Kul-Lake-Kyrgyzstan-2-1024x768.jpg",
+    country: "KYRGYZSTAN",
+  },
+  {
+    image1:
+      "https://cdn.britannica.com/06/171306-050-C88DD752/Aurora-borealis-peninsula-Snaefellsnes-Iceland-March-2013.jpg",
+    image2:
+      "https://th-thumbnailer.cdn-si-edu.com/_riTYrpJ61h1uXR7rgZ6SZU1Xz4=/fit-in/1072x0/filters:focal(3600x2040:3601x2041)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/0c/d7/0cd72b96-17d4-44a5-95c7-6dcdc8788517/7_-_535c1da8-9b12-421c-a350-682d69d7eb48.jpg",
+    country: "ICELAND",
+  },
+  {
+    image1:
+      "https://visitukraine.today/media/blog/previews/OABKGsg7KSrnN1ksEI0gQFP561hhG29QSUVdb5ex.webp",
+    image2:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSQeSRAUK8h1qT-Mrq26CQ3CFi4oOos9RvA&s",
+    country: "UKRAINE",
+  },
+  {
+    image1: "https://georgiaintrend.com/wp-content/uploads/2018/06/8days.jpg",
+    image2:
+      "https://touringhighlights.com/wp-content/uploads/2022/07/Georgia-1.jpg",
+    country: "GEORGIA",
+  },
+  {
+    image1:
+      "https://www.nomadicmatt.com/wp-content/uploads/2011/12/11reasonsthailand.jpg",
+    image2:
+      "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSXM6RWAKurJJRDwMFub0zxoASiMilC-Y79n7sLIEommzGKyw47YQ06iAaINz1k0i42GQ6qCiroOzZB5f9wuwhxMf9h4EL8DV1JFIRe0Q",
+    country: "THAILAND",
+  },
+];
+
 const Body = () => {
   return (
-    <section class="container">
-      <div class="category_container">
-        <div class="content">
-          <img
-            src="https://media.cnn.com/api/v1/images/stellar/prod/230210161917-01-japan-never-traveler-culture-tokyo.jpg?c=16x9&q=h_833,w_1480,c_fill"
-            class="professio_image"
-            alt="Profession"
-          />
-          <img
-            src="https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg"
-            class="profile_image"
-            alt="Profile"
-          />
-          <div class="profile_detail">
-            <span>JAPAN</span>
-            <p>What is Japan like?</p>
-          </div>
-
-          <div class="wrapper">
-            <div class="profile_quote">
-              <p>
-                Japan’s architecture, art, traditions, crafts. Also, its
-                worldwide known pop culture (including manga, anime, and video
-                games). It’s something that definitely only Japan can offer. No
-                other country contains the same characteristics.
-              </p>
+    <section className="new-container">
+      <div className="large-item-container">
+        {cardData.slice(0, 1).map((data, index) => (
+          <div className="new-content large" key={index}>
+            <img
+              src={data.image1}
+              className="new-profession-image"
+              alt="Profession"
+            />
+            <img
+              src={data.image2}
+              className="new-profile-image"
+              alt="Profile"
+            />
+            <div className="new-wrapper">
+              <div className="new-profile-quote">
+                <p>{data.country}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="content">
-          <img
-            src="https://assets3.thrillist.com/v1/image/2783896/792x528/scale;webp=auto;jpeg_quality=60;progressive.jpg"
-            class="profession_image"
-            alt="Profession"
-          />
-          <img
-            src="https://www.journalofnomads.com/wp-content/uploads/2019/09/Ala-Kul-Lake-Kyrgyzstan-2-1024x768.jpg"
-            class="profile_image"
-            alt="Profile"
-          />
-          <div class="profile_detail">
-            <span>KYRGYZSTAN</span>
-            <p>What is Kyrgyzstan like?</p>
-          </div>
-          <div class="wrapper">
-            <div class="profile_quote">
-              <p>
-                A small mountainous country in Central Asia. The mountains are
-                high and wild, sometimes hard to reach and unpredictable. But
-                very beautiful and diverse. The mountains are the main property
-                of Kyrgyzstan and the bulk of tourists come here because of the
-                mountains.
-              </p>
+        ))}
+      </div>
+      <div className="small-items-container">
+        {cardData.slice(1).map((data, index) => (
+          <div className="new-content small" key={index}>
+            <img
+              src={data.image1}
+              className="new-profession-image"
+              alt="Profession"
+            />
+            <img
+              src={data.image2}
+              className="new-profile-image"
+              alt="Profile"
+            />
+            <div className="new-wrapper">
+              <div className="new-profile-quote">
+                <p>{data.country}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="content">
-          <img
-            src="https://cdn.britannica.com/06/171306-050-C88DD752/Aurora-borealis-peninsula-Snaefellsnes-Iceland-March-2013.jpg"
-            class="profession_image"
-            alt="Profession"
-          />
-          <img
-            src="https://th-thumbnailer.cdn-si-edu.com/_riTYrpJ61h1uXR7rgZ6SZU1Xz4=/fit-in/1072x0/filters:focal(3600x2040:3601x2041)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/0c/d7/0cd72b96-17d4-44a5-95c7-6dcdc8788517/7_-_535c1da8-9b12-421c-a350-682d69d7eb48.jpg"
-            class="profile_image"
-            alt="Profile"
-          />
-          <div class="profile_detail">
-            <span>ICELAND</span>
-            <p>What is Iceland like?</p>
-          </div>
-          <div class="wrapper">
-            <div class="profile_quote">
-              <p>
-                Iceland, the land of fire and ice, has become a popular travel
-                destination over the past few years. From the country’s
-                magnificent glaciers, thundering waterfalls and epic natural
-                nighttime displays, it’s easy to see why travelers are escaping
-                to the edge of the world.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="content">
-          <img
-            src="https://storyteller.travel/wp-content/uploads/2019/02/facts-about-italy.jpg"
-            class="professio_image"
-            alt="Profession"
-          />
-          <img
-            src="https://images.ctfassets.net/qr8kennq1pom/6tVmll4aEUwrFp5yPrmHNL/14d80088b691e28ffe71bc9d85650216/Pros_of_living_in_Italy_Positano-s_landscape.png?fm=jpg&fl=progressive&q=70"
-            class="profile_image"
-            alt="Profile"
-          />
-          <div class="profile_detail">
-            <span>Italy</span>
-            <p>What is Italy like?</p>
-          </div>
-
-          <div class="wrapper">
-            <div class="profile_quote">
-              <p>
-                Landscapes that will take your breath away, rich history, and
-                delicious food, your trip to Italy will be nothing short of
-                unforgettable.
-              </p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

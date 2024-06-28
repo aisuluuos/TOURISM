@@ -2,15 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
 import { Box, Pagination } from "@mui/material";
 import ProductCard from "./ProductCard";
+import { useSearchParams } from "react-router-dom";
 
 const ProductList = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { getProducts, products } = useProduct();
   const [page, setPage] = useState(1);
   const itemsPerPage = 3;
 
   useEffect(() => {
     getProducts();
-  }, [getProducts]);
+  }, [searchParams]);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const handleChange = (event, value) => {
     setPage(value);

@@ -26,6 +26,42 @@
       "description": "Iceland, the land of fire and ice, has become a popular travel destination over the past few years. From the country’s magnificent glaciers, thundering waterfalls and epic natural nighttime displays, it’s easy to see why travelers are escaping to the edge of the world.",
       "price": 0,
       "category": "Europe"
+    },
+    {
+      "image1": "https://visitukraine.today/media/blog/previews/OABKGsg7KSrnN1ksEI0gQFP561hhG29QSUVdb5ex.webp",
+      "image2": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrSQeSRAUK8h1qT-Mrq26CQ3CFi4oOos9RvA&s",
+      "country": "Ukraine",
+      "description": "Ancient castles or natural wonders? Seaside holiday or mountain hiking? It’s hard to believe — but Ukraine has it all. And many more discoveries you wouldn’t expect!",
+      "price": 0,
+      "category": "Europe",
+      "id": 4
+    },
+    {
+      "image1": "https://georgiaintrend.com/wp-content/uploads/2018/06/8days.jpg",
+      "image2": "https://touringhighlights.com/wp-content/uploads/2022/07/Georgia-1.jpg",
+      "country": "Georgia",
+      "description": "A country of ancient culture, where the breathtaking beauty of nature provides the perfect backdrop for infinite adventures and memorable experiences that will stay with you forever.",
+      "price": 0,
+      "category": "Europe",
+      "id": 5
+    },
+    {
+      "image1": "https://www.nomadicmatt.com/wp-content/uploads/2011/12/11reasonsthailand.jpg",
+      "image2": "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSXM6RWAKurJJRDwMFub0zxoASiMilC-Y79n7sLIEommzGKyw47YQ06iAaINz1k0i42GQ6qCiroOzZB5f9wuwhxMf9h4EL8DV1JFIRe0Q",
+      "country": "Thailand",
+      "description": "Gleaming temples and golden Buddhas frame the landscapes in Thailand, serving as a stunning backdrop for tours of Bangkok noodle shacks and adventures along the luxurious coastline.",
+      "price": 0,
+      "category": "Asia",
+      "id": 6
+    },
+    {
+      "image1": "",
+      "image2": "",
+      "country": "",
+      "description": "",
+      "price": 0,
+      "category": "",
+      "id": 7
     }
   ],
   "category": [
@@ -36,6 +72,14 @@
     {
       "name": "Asia",
       "id": 2
+    },
+    {
+      "name": "Молдова",
+      "id": 3
+    },
+    {
+      "name": "Footer",
+      "id": 4
     }
   ]
 }

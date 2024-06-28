@@ -79,12 +79,12 @@ const Navbar = () => {
               <MenuItem onClick={handleMenuClose}>
                 <ListItemIcon>
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
-                    alt="Iceland Flag"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
+                    alt="Japan Flag"
                     style={{ width: 30, height: 20, marginRight: 10 }}
                   />
                 </ListItemIcon>
-                Iceland
+                Japan
               </MenuItem>
               <MenuItem onClick={handleMenuClose}>
                 <ListItemIcon>
@@ -99,12 +99,43 @@ const Navbar = () => {
               <MenuItem onClick={handleMenuClose}>
                 <ListItemIcon>
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
-                    alt="Japan Flag"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
+                    alt="Iceland Flag"
                     style={{ width: 30, height: 20, marginRight: 10 }}
                   />
                 </ListItemIcon>
-                Japan
+                Iceland
+              </MenuItem>
+
+              <MenuItem onClick={handleMenuClose}>
+                <ListItemIcon>
+                  <img
+                    src="https://img.freepik.com/premium-photo/ukraine-national-fabric-flag-textile-background-symbol-international-world-european-country_113767-2440.jpg"
+                    alt="Ukraine Flag"
+                    style={{ width: 30, height: 20, marginRight: 10 }}
+                  />
+                </ListItemIcon>
+                Ukraine
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose}>
+                <ListItemIcon>
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/2560px-Flag_of_Georgia.svg.png"
+                    alt="Georgia Flag"
+                    style={{ width: 30, height: 20, marginRight: 10 }}
+                  />
+                </ListItemIcon>
+                Georgia
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose}>
+                <ListItemIcon>
+                  <img
+                    src="https://img.goodfon.ru/wallpaper/big/3/64/thailand-flag-flag-of-thailand-thailand-large-flag-national.jpg"
+                    alt="Thailand Flag"
+                    style={{ width: 30, height: 20, marginRight: 10 }}
+                  />
+                </ListItemIcon>
+                Thailand
               </MenuItem>
             </Menu>
           </Box>

@@ -16,15 +16,25 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const SideBar = () => {
   const { categories, getCategories, fetchByParams } = useProduct();
+
   useEffect(() => {
     getCategories();
   }, []);
 
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(searchParams.get("q") || "");
+
   useEffect(() => {
-    setSearchParams({ q: search });
-  }, [search, setSearchParams]);
+    const params = {};
+    if (search) {
+      params.q = search;
+    }
+    const category = searchParams.get("category");
+    if (category) {
+      params.category = category;
+    }
+    setSearchParams(params);
+  }, [search, searchParams, setSearchParams]);
 
   const handleClearSearch = () => {
     setSearch("");
