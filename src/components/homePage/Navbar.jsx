@@ -1,23 +1,16 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Menu,
-  MenuItem,
-  Box,
-  ListItemIcon,
-  IconButton,
-} from "@mui/material";
+import "./Navbar.css";
+import { AppBar, Toolbar, Button, Menu, Box, IconButton } from "@mui/material";
 import {
   ExpandMore as ExpandMoreIcon,
   ShoppingCartOutlined as ShoppingCartIcon,
 } from "@mui/icons-material";
 import logo from "../homePage/assets/logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const navigate = useNavigate();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -34,7 +27,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Logo"
-            style={{ width: 70, height: "auto", marginRight: "10px" }}
+            style={{ width: 90, height: "auto", marginRight: "10px" }}
           />
           <Link to={"/"}>
             <Button color="inherit" sx={{ fontSize: "0.9rem", color: "white" }}>
@@ -68,7 +61,7 @@ const Navbar = () => {
               PaperProps={{
                 elevation: 0,
                 sx: {
-                  backgroundColor: "#212121",
+                  backgroundColor: "black",
                   color: "white",
                   minWidth: "200px",
                   borderRadius: "0",
@@ -76,67 +69,109 @@ const Navbar = () => {
                 },
               }}
             >
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
-                    alt="Japan Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Japan
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/2560px-Flag_of_Kyrgyzstan.svg.png"
-                    alt="Kyrgyzstan Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Kyrgyzstan
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
-                    alt="Iceland Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Iceland
-              </MenuItem>
-
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://img.freepik.com/premium-photo/ukraine-national-fabric-flag-textile-background-symbol-international-world-european-country_113767-2440.jpg"
-                    alt="Ukraine Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Ukraine
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/2560px-Flag_of_Georgia.svg.png"
-                    alt="Georgia Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Georgia
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose}>
-                <ListItemIcon>
-                  <img
-                    src="https://img.goodfon.ru/wallpaper/big/3/64/thailand-flag-flag-of-thailand-thailand-large-flag-national.jpg"
-                    alt="Thailand Flag"
-                    style={{ width: 30, height: 20, marginRight: 10 }}
-                  />
-                </ListItemIcon>
-                Thailand
-              </MenuItem>
+              <div className="drd">
+                <div className="cl">
+                  <div className="dcon">
+                    <div className="dtit">Where to go</div>
+                    <div className="drcontainer">
+                      <div className="contitem">
+                        <div className="legend">Top Recommendations</div>
+                        <a
+                          onClick={() => navigate("/countryIceland")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
+                              alt="Iceland Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Iceland</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryKyrgyzstan")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/2560px-Flag_of_Kyrgyzstan.svg.png"
+                              alt="Kyrgyzstan Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Kyrgyzstan</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryJapan")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
+                              alt="Japan Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Japan</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryItaly")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"
+                              alt="Italy Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Italy</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryGeorgia")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Flag_of_Georgia.svg"
+                              alt="Georgia Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Georgia</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryThailand")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Flag_of_Thailand.svg"
+                              alt="Thailand Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Thailand</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryUkraine")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
+                              alt="Ukraine Flag"
+                              style={{ width: 30, height: 20, marginRight: 10 }}
+                            />
+                          </div>
+                          <div className="menuitemmeta">Ukraine</div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </Menu>
           </Box>
           <Link to={"/about"}>
