@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography, Grid } from "@mui/material";
 import { useProduct } from "../../context/ProductContextProvider";
-import AddCategory from "./AddCategory";
+import CategorySelect from "./CategorySelect"; // Import CategorySelect component
 
 const AddProduct = () => {
   const { createProduct } = useProduct();
@@ -113,11 +113,49 @@ const AddProduct = () => {
       <Button
         onClick={handleClick}
         fullWidth
+<<<<<<< HEAD
         variant="contained"
         color="primary"
         sx={{ mt: 3 }}
       >
         Add Post
+=======
+        label="Image1"
+        variant="outlined"
+        onChange={handleInput}
+      />
+      <TextField
+        name="image2"
+        fullWidth
+        label="Image2"
+        variant="outlined"
+        onChange={handleInput}
+      />
+      <TextField
+        name="country"
+        fullWidth
+        label="Country"
+        variant="outlined"
+        onChange={handleInput}
+      />
+      <TextField
+        name="description"
+        fullWidth
+        label="Description"
+        variant="outlined"
+        onChange={handleInput}
+      />
+      <TextField
+        name="price"
+        fullWidth
+        label="Price"
+        variant="outlined"
+        onChange={handleInput}
+      />
+      <CategorySelect handleInput={handleInput} />
+      <Button onClick={handleClick} fullWidth variant="contained">
+        Add Product
+>>>>>>> cd80cc7fad851dd3f7ccaa1450a7d2d9d6b41f3c
       </Button>
       <AddCategory />
     </Box>
