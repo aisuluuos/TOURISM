@@ -3,15 +3,18 @@ import { Box, Typography, IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import CommentIcon from "@mui/icons-material/Comment";
 import "./ProductCard.css";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/ProductContextProvider";
 import Detail from "./Detail";
+import CommentModal from "./CommentModal";
 
 const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
   const [detailOpen, setDetailOpen] = useState(false);
+  const [commentModalOpen, setCommentModalOpen] = useState(false);
 
   const handleDelete = () => {
     deleteProduct(elem.id);
@@ -27,6 +30,14 @@ const ProductCard = ({ elem }) => {
 
   const handleDetailClose = () => {
     setDetailOpen(false);
+  };
+
+  const handleCommentModalOpen = () => {
+    setCommentModalOpen(true);
+  };
+
+  const handleCommentModalClose = () => {
+    setCommentModalOpen(false);
   };
 
   return (
@@ -47,6 +58,9 @@ const ProductCard = ({ elem }) => {
           <IconButton color="warning" onClick={handleDetailOpen}>
             <VisibilityIcon />
           </IconButton>
+          <IconButton color="secondary" onClick={handleCommentModalOpen}>
+            <CommentIcon />
+          </IconButton>
           <IconButton color="primary" onClick={handleEdit}>
             <EditIcon />
           </IconButton>
@@ -55,6 +69,11 @@ const ProductCard = ({ elem }) => {
           </IconButton>
         </Box>
         <Detail elem={elem} open={detailOpen} handleClose={handleDetailClose} />
+        <CommentModal
+          open={commentModalOpen}
+          handleClose={handleCommentModalClose}
+          productId={elem.id}
+        />
       </Box>
     </Box>
   );
