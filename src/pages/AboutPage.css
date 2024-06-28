@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.quote,
+.quote2 {
+  font-size: 35px;
+  background-color: rgb(172, 213, 253);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  padding: 60px;
+  color: white;
+  text-align: center;
+}
+.quote2 {
+  margin-top: 50px;
+}
+ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+li {
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s ease;
+}
+
+ul:is(:hover, :focus-within) img {
+  opacity: calc(0.1 + (var(--active-lerp, 0) * 0.9));
+  filter: grayscale(calc(1 - var(--active-lerp, 0)));
+}
+
+:root {
+  --lerp-0: 1;
+  --lerp-1: 0.5787037;
+  --lerp-2: 0.2962963;
+  --lerp-3: 0.125;
+  --lerp-4: 0.037037;
+  --lerp-5: 0.0046296;
+  --lerp-6: 0;
+}
+
+a {
+  outline-offset: 4px;
+}
+
+li {
+  flex: calc(0.1 + (var(--active-lerp, 0) * 1));
+  transition: flex 0.2s ease;
+}
+
+li:is(:hover, :focus-within) {
+  --active-lerp: var(--lerp-0);
+  z-index: 7;
+}
+li:has(+ li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li {
+  --active-lerp: var(--lerp-1);
+  z-index: 6;
+}
+li:has(+ li + li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li + li {
+  --active-lerp: var(--lerp-2);
+  z-index: 5;
+}
+li:has(+ li + li + li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li + li + li {
+  --active-lerp: var(--lerp-3);
+  z-index: 4;
+}
+li:has(+ li + li + li + li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li + li + li + li {
+  --active-lerp: var(--lerp-4);
+  z-index: 3;
+}
+li:has(+ li + li + li + li + li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li + li + li + li + li {
+  --active-lerp: var(--lerp-5);
+  z-index: 2;
+}
+li:has(+ li + li + li + li + li + li:is(:hover, :focus-within)),
+li:is(:hover, :focus-within) + li + li + li + li + li + li {
+  --active-lerp: var(--lerp-6);
+  z-index: 1;
+}
+.h1 {
+  font-size: 70px;
+  text-align: center;
+  font-weight: 900;
+  font-family: "Poppins";
+  color: rgb(255, 252, 66);
+  padding-top: 40px;
+  padding-left: 50px;
+}
+.h3 {
+  font-family: Poppins;
+  font-size: 40px;
+  color: lightblue;
+  font-weight: 600;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+.p {
+  font-family: Montserrat;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: darkblue;
+  font-weight: 550;
+}
+.aboutSection {
+  margin-bottom: 100px;
+}
