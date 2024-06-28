@@ -1,0 +1,38 @@
+.drd {
+  width: 350px;
+  height: 500px;
+}
+.dtit {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  padding-top: 20px;
+  font-size: 23px;
+  font-weight: 900;
+}
+.drcontainer {
+  display: flex;
+  font-family: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+.legend {
+  color: white;
+  padding-left: 50px;
+  font-size: 18px;
+  padding-top: 20px;
+  font-weight: 200;
+  padding-bottom: 40px;
+  text-transform: uppercase;
+}
+.contitem {
+  color: white;
+  padding-left: 30px;
+}
+.href {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  margin-bottom: 25px;
+}
