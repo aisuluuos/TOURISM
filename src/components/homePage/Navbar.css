@@ -1,6 +1,8 @@
 .drd {
-  width: 350px;
-  height: 500px;
+  width: 250px;
+  height: auto;
+  max-height: 600px;
+  overflow-y: auto;
 }
 
 .dtit {
@@ -10,29 +12,34 @@
   padding-top: 20px;
   font-size: 23px;
   font-weight: 900;
+  margin-bottom: 10px;
 }
 
 .drcontainer {
   display: flex;
+  flex-direction: column;
   font-family: inherit;
   vertical-align: baseline;
   box-sizing: border-box;
+  padding: 0 10px;
 }
 
 .legend {
   color: white;
-  font-size: 18px;
-  padding-top: 20px;
-  font-weight: 200;
-  padding-bottom: 40px;
+  font-size: 20px;
+  padding-top: 10px;
+  font-weight: 300;
+  padding-bottom: 10px;
   text-transform: uppercase;
   text-align: center;
-  padding-left: 30px;
+  padding-left: 0;
+  margin-bottom: 10px;
 }
 
 .contitem {
   color: white;
-  padding-left: 30px;
+  padding-left: 0;
+  text-align: center;
 }
 
 .href {
@@ -40,8 +47,17 @@
   align-items: center;
   text-decoration: none;
   color: #fff;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.href:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transform: scale(1.02);
 }
 
 .menuitem {
@@ -52,22 +68,33 @@
   width: 30px;
   height: 20px;
   margin-right: 10px;
+  transition: filter 0.3s ease;
 }
 
 .menuitemmeta {
   color: white;
-  font-size: 20px;
-  letter-spacing: 5px;
-  font-weight: 200;
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+  letter-spacing: 2px;
+  font-weight: 300;
 }
 
 .menuitem .image {
   filter: brightness(1);
 }
-.menuitem {
-  transition: transform 0.3s ease; /* плавный переход при изменении размера */
+
+.menuitem:hover .image {
+  filter: brightness(1.3);
 }
 
-.menuitem:hover img {
-  transform: scale(1.6); /* увеличение размера картинки при ховере */
+.menuitem:hover .menuitemmeta {
+  color: #ffeb3b;
+}
+
+.menuitem {
+  transition: transform 0.3s ease;
+}
+
+.menuitem:hover {
+  transform: scale(1.02);
 }

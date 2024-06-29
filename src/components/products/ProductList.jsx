@@ -56,7 +56,6 @@ const ProductList = () => {
         count={Math.ceil(products.length / itemsPerPage)}
         page={page}
         onChange={handleChange}
-        color="error"
         sx={{
           display: "flex",
           justifyContent: "center",

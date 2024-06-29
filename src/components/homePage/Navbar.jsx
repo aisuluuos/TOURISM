@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { AppBar, Toolbar, Button, Menu, Box, IconButton } from "@mui/material";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  Menu,
+  Box,
+  IconButton,
+  Badge,
+} from "@mui/material";
 import {
   ExpandMore as ExpandMoreIcon,
   ShoppingCartOutlined as ShoppingCartIcon,
 } from "@mui/icons-material";
 import logo from "../homePage/assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContextProvider";
+import { getProductsCountInCart } from "../../helpers/functions";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
+  const [badgeCount, setBadgeCount] = useState(0);
+  const { addProductToCart } = useCart();
+
+  useEffect(() => {
+    setBadgeCount(getProductsCountInCart());
+  }, [addProductToCart]);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -236,7 +252,9 @@ const Navbar = () => {
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Link to={"/cart"} style={{ color: "white", marginRight: "10px" }}>
             <IconButton color="inherit">
-              <ShoppingCartIcon />
+              <Badge badgeContent={badgeCount} color="success">
+                <ShoppingCartIcon />
+              </Badge>
             </IconButton>
           </Link>
           <Link to={"/auth"}>

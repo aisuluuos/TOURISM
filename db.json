@@ -7,7 +7,8 @@
       "country": "JAPAN",
       "description": "Japan’s architecture, art, traditions, crafts. Also, its worldwide known pop culture (including manga, anime, and video games). It’s something that definitely only Japan can offer. No other country contains the same characteristics.",
       "price": 0,
-      "category": "Asia"
+      "category": "Asia",
+      "comments": []
     },
     {
       "id": 2,
@@ -53,15 +54,6 @@
       "price": 0,
       "category": "Asia",
       "id": 6
-    },
-    {
-      "image1": "",
-      "image2": "",
-      "country": "",
-      "description": "",
-      "price": 0,
-      "category": "",
-      "id": 7
     }
   ],
   "category": [
@@ -72,14 +64,6 @@
     {
       "name": "Asia",
       "id": 2
-    },
-    {
-      "name": "Молдова",
-      "id": 3
-    },
-    {
-      "name": "Footer",
-      "id": 4
     }
   ]
 }

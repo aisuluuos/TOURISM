@@ -13,7 +13,6 @@ const PaginationControlled = ({ page, countPage, handleChange }) => {
         <Pagination
           count={countPage}
           variant="outlined"
-          color="primary"
           page={page}
           onChange={handleChange}
         />
