@@ -9,7 +9,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     getOneProduct(id);
-  }, []);
+  }, [id]);
 
   const [product, setProduct] = useState({
     image1: "",
@@ -59,10 +59,14 @@ const EditProduct = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        backgroundColor: "#fff",
+        padding: 3,
+        borderRadius: 2,
+        boxShadow: 2,
       }}
     >
-      <Typography variant="h4" align="center">
-        ADMIN PAGE
+      <Typography variant="h4" align="center" sx={{ mb: 3 }}>
+        Edit Product
       </Typography>
       <TextField
         name="image1"
@@ -112,7 +116,12 @@ const EditProduct = () => {
         onChange={handleInput}
         value={product.category}
       />
-      <Button onClick={handleClick} fullWidth variant="contained">
+      <Button
+        onClick={handleClick}
+        fullWidth
+        variant="contained"
+        color="primary"
+      >
         Save
       </Button>
     </Box>

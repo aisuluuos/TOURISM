@@ -8,6 +8,9 @@ import {
   Box,
   IconButton,
   Badge,
+  Typography,
+  Tooltip,
+  MenuItem,
 } from "@mui/material";
 import {
   ExpandMore as ExpandMoreIcon,
@@ -17,16 +20,24 @@ import logo from "../homePage/assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContextProvider";
 import { getProductsCountInCart } from "../../helpers/functions";
+import { useAuth } from "../../context/AuthContextProvider";
+import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const navigate = useNavigate();
+  const [anchorElUser, setAnchorElUser] = useState(null);
   const [badgeCount, setBadgeCount] = useState(0);
   const { addProductToCart } = useCart();
+  const { user, handleLogOut, authListener } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setBadgeCount(getProductsCountInCart());
   }, [addProductToCart]);
+
+  useEffect(() => {
+    authListener();
+  }, [authListener]);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -34,6 +45,14 @@ const Navbar = () => {
 
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
   };
 
   return (
@@ -240,14 +259,16 @@ const Navbar = () => {
               About
             </Button>
           </Link>
-          <Link to={"/admin"}>
-            <Button
-              color="inherit"
-              sx={{ fontSize: "0.9rem", ml: 1, color: "white" }}
-            >
-              Admin
-            </Button>
-          </Link>
+          {user.email === ADMIN && (
+            <Link to={"/admin"} style={{ textDecoration: "none" }}>
+              <Button
+                color="inherit"
+                sx={{ fontSize: "0.9rem", ml: 1, color: "white" }}
+              >
+                Admin
+              </Button>
+            </Link>
+          )}
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
           <Link to={"/cart"} style={{ color: "white", marginRight: "10px" }}>
@@ -257,14 +278,77 @@ const Navbar = () => {
               </Badge>
             </IconButton>
           </Link>
-          <Link to={"/auth"}>
-            <Button
-              color="inherit"
-              sx={{ fontSize: "0.9rem", ml: 1, color: "white" }}
-            >
-              Register
-            </Button>
-          </Link>
+          {user ? (
+            <>
+              <Tooltip title="Open profile menu">
+                <IconButton
+                  onClick={handleOpenUserMenu}
+                  sx={{ p: 0 }}
+                  color="inherit"
+                >
+                  <Typography sx={{ color: "white" }}>
+                    {`Hello, ${user.email}!`}
+                  </Typography>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+                PaperProps={{
+                  elevation: 0,
+                  sx: {
+                    backgroundColor: "black",
+                    color: "white",
+                    minWidth: "200px",
+                    borderRadius: "0",
+                    marginTop: "8px",
+                    "& .MuiMenuItem-root": {
+                      padding: "10px 20px",
+                      justifyContent: "center",
+                      "&:hover": {
+                        backgroundColor: "#444",
+                      },
+                    },
+                  },
+                }}
+              >
+                <MenuItem
+                  onClick={() => {
+                    handleLogOut();
+                    handleCloseUserMenu();
+                  }}
+                  className="logout-btn"
+                >
+                  <Typography
+                    sx={{ color: "white", textAlign: "center", width: "100%" }}
+                  >
+                    LogOut
+                  </Typography>
+                </MenuItem>
+              </Menu>
+            </>
+          ) : (
+            <Link to={"/auth"}>
+              <Button
+                color="inherit"
+                sx={{ fontSize: "0.9rem", ml: 1, color: "white" }}
+              >
+                Register
+              </Button>
+            </Link>
+          )}
         </Box>
       </Toolbar>
     </AppBar>

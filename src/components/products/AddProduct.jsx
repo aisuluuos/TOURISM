@@ -39,9 +39,9 @@ const AddProduct = () => {
         maxWidth: 600,
         margin: "auto",
         padding: 3,
-        borderRadius: 8,
-        boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-        backgroundColor: "lightyellow",
+        borderRadius: 2,
+        boxShadow: 2,
+        backgroundColor: "#fff",
       }}
     >
       <Typography variant="h5" align="center" gutterBottom>

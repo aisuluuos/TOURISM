@@ -33,8 +33,8 @@ const ProductList = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        marginTop: 2,
-        marginBottom: 0.5,
+        marginTop: 1,
+        marginBottom: 3,
         backgroundColor: "white",
       }}
     >

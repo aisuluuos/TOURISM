@@ -1,65 +1,51 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import "./Footer.css";
+import logo from "../homePage/assets/logo.png";
+import collabLogo from "../homePage/assets/logo.png";
+import { Box, Typography, Link } from "@mui/material";
 
 const Footer = () => {
+  const handleSmoothScroll = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        <div className="footer-section about">
-          <h2>About us</h2>
-          <p>
-            About Us: Our travel agency specializes in organizing unforgettable
-            journeys and providing high-quality tourism services. We take pride
-            in crafting bespoke tours that cater to the unique desires and
-            interests of our clients. Our team of professionals is ready to
-            offer you the best routes, comfortable accommodations, and exciting
-            excursions worldwide.
-          </p>
-          <div className="contact">
-            <span>
-              <i className="fas fa-phone"></i> +996508155295
-            </span>
-            <span>
-              <i className="fas fa-envelope"></i> example@example.com
-            </span>
-          </div>
-        </div>
-        <div className="footer-section links">
-          <h2>Tours</h2>
-          <ul>
-            <li>
-              <a href="#">Iceland</a>
-            </li>
-            <li>
-              <a href="#">Kyrgyzstan</a>
-            </li>
-            <li>
-              <a href="#">Japan</a>
-            </li>
-          </ul>
-        </div>
-        <div className="footer-section social">
-          <h2>We are on social media.</h2>
-
-          <p>Follow us on social media!</p>
-
-          <div className="social-icons">
-            <a href="#">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#">
-              <i className="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className="footer-bottom">
-        &copy; {new Date().getFullYear()}ExploreXperience
-      </div>
-    </footer>
+    <Box className="footer-container">
+      <Box className="footer-background" />
+      <Box className="footer-content">
+        <Box className="footer-logos">
+          <img src={logo} alt="Main Logo" className="footer-logo" />
+          <div className="collab-divider">X</div>
+          <img src={collabLogo} alt="Collab Logo" className="footer-logo" />
+        </Box>
+        <Typography variant="h6" className="footer-heading">
+          Explore Destinations Around the World
+        </Typography>
+        <Box className="footer-links">
+          <Link
+            href="#"
+            color="inherit"
+            underline="none"
+            onClick={handleSmoothScroll}
+          >
+            Home
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/about"
+            color="inherit"
+            underline="none"
+          >
+            About
+          </Link>
+        </Box>
+      </Box>
+      <Typography variant="body2" className="footer-copy">
+        ©ExploreXperience
+      </Typography>
+    </Box>
   );
 };
 

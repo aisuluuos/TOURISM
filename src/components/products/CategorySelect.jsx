@@ -6,8 +6,8 @@ const CategorySelect = ({ handleInput }) => {
   const { categories, getCategories } = useProduct();
   useEffect(() => {
     getCategories();
-  }, []);
-  console.log(categories);
+  }, [getCategories]);
+
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>

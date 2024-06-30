@@ -9,10 +9,7 @@ const AdminPage = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Container
-      maxWidth="fullwidth"
-      sx={{ py: 4, backgroundColor: "lightcyan" }}
-    >
+    <Container maxWidth="lg">
       <Typography variant="h4" align="center" gutterBottom>
         Admin Page
       </Typography>

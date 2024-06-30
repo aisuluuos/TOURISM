@@ -123,7 +123,7 @@ const AboutPage = () => {
         </p>
       </section>
       <h1 className="h1">Our Mission</h1>
-      <h3 className="h3">ExploreXperience - </h3>
+      <h3 className="h3">ExploreXperience</h3>
       <p className="p">
         bring travellers to experience our world in a unique way through
         unparalleled access and insights into a world steeped in history and

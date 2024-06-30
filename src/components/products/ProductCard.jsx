@@ -10,12 +10,15 @@ import { useProduct } from "../../context/ProductContextProvider";
 import Detail from "./Detail";
 import CommentModal from "./CommentModal";
 import { useCart } from "../../context/CartContextProvider";
+import { useAuth } from "../../context/AuthContextProvider";
+import { ADMIN } from "../../helpers/const";
 import "./ProductCard.css";
 
 const ProductCard = ({ elem }) => {
   const { deleteProduct } = useProduct();
   const navigate = useNavigate();
   const { addProductToCart, checkProductInCart } = useCart();
+  const { user } = useAuth(); // Получаем информацию о пользователе
   const [detailOpen, setDetailOpen] = useState(false);
   const [commentModalOpen, setCommentModalOpen] = useState(false);
 
@@ -57,15 +60,20 @@ const ProductCard = ({ elem }) => {
           >
             <AddShoppingCartIcon />
           </IconButton>
-          <IconButton
-            color="primary"
-            onClick={() => navigate(`/edit/${elem.id}`)}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton color="error" onClick={() => deleteProduct(elem.id)}>
-            <DeleteIcon />
-          </IconButton>
+          {/* Добавлена проверка на админа */}
+          {user.email === ADMIN && (
+            <>
+              <IconButton
+                color="primary"
+                onClick={() => navigate(`/edit/${elem.id}`)}
+              >
+                <EditIcon />
+              </IconButton>
+              <IconButton color="error" onClick={() => deleteProduct(elem.id)}>
+                <DeleteIcon />
+              </IconButton>
+            </>
+          )}
         </Box>
         <Detail
           elem={elem}

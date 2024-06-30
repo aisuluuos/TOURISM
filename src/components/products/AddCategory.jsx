@@ -9,9 +9,11 @@ const AddCategory = ({ open, handleClose }) => {
     left: "30%",
     width: 700,
     display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     border: "2px solid black",
     boxShadow: 24,
-    bgcolor: "background.paper",
+    bgcolor: "#fff",
     p: 4,
   };
   const [category, setCategory] = useState("");
@@ -31,13 +33,17 @@ const AddCategory = ({ open, handleClose }) => {
     <div>
       <Modal open={open} onClose={handleClose}>
         <Box sx={style}>
-          <Typography id="modal-modal-title">Add new category</Typography>
+          <Typography id="modal-modal-title" variant="h6" sx={{ mb: 2 }}>
+            Add new category
+          </Typography>
           <TextField
             fullWidth
             variant="outlined"
             onChange={(e) => setCategory(e.target.value)}
           />
-          <Button onClick={handleClick}>Add</Button>
+          <Button onClick={handleClick} sx={{ mt: 2 }} variant="contained">
+            Add
+          </Button>
         </Box>
       </Modal>
     </div>
