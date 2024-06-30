@@ -2,7 +2,7 @@
   background-color: #f8f9fa;
   color: #343a40;
   text-align: center;
-  padding: 10px 30px 0;
+  padding: 10px 0 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -25,6 +25,7 @@
   gap: 15px;
   margin-top: 10px;
   margin-bottom: 20px;
+  padding: 0 30px;
 }
 
 .countryPageImage {
@@ -43,16 +44,20 @@
   line-height: 1.8;
   max-width: 800px;
   margin: 0 auto 20px;
-  padding: 0 10px;
+  padding: 0 30px;
 }
 
 .countryPageQuoteContainer {
   background-color: black;
-  padding: 40px;
+  padding: 40px 0;
+  margin: 0;
   width: 100vw;
-  margin-top: auto;
-  margin-left: calc(-50vw + 50%);
   box-sizing: border-box;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .countryPageQuote {
@@ -61,4 +66,21 @@
   color: white;
   text-align: center;
   margin: 0;
+  padding: 0 30px;
+}
+
+footer {
+  background-color: #343a40;
+  color: #f8f9fa;
+  text-align: center;
+  padding: 20px 0;
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: auto;
 }

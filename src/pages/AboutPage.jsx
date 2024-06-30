@@ -1,5 +1,6 @@
 import React from "react";
 import "./AboutPage.css";
+import Footer from "../components/homePage/Footer";
 const AboutPage = () => {
   return (
     <div className="aboutSection">
@@ -150,6 +151,7 @@ const AboutPage = () => {
         "A traveler without observation is a bird without wings." — Moslih Eddin
         Saadi
       </section>
+      <Footer />
     </div>
   );
 };

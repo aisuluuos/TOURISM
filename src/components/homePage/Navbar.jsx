@@ -112,13 +112,13 @@ const Navbar = () => {
                       <div className="contitem">
                         <div className="legend">Top Recommendations</div>
                         <a
-                          onClick={() => navigate("/countryJapan")}
+                          onClick={() => navigate("/countryIceland")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
-                              alt="Japan Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
+                              alt="Iceland Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -128,7 +128,7 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">JAPAN</div>
+                          <div className="menuitemmeta">Iceland</div>
                         </a>
                         <a
                           onClick={() => navigate("/countryKyrgyzstan")}
@@ -147,16 +147,16 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">KYRGYZSTAN</div>
+                          <div className="menuitemmeta">Kyrgyzstan</div>
                         </a>
                         <a
-                          onClick={() => navigate("/countryIceland")}
+                          onClick={() => navigate("/countryJapan")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
-                              alt="Iceland Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
+                              alt="Japan Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -166,16 +166,16 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">ICELAND</div>
+                          <div className="menuitemmeta">Japan</div>
                         </a>
                         <a
-                          onClick={() => navigate("/countryUkraine")}
+                          onClick={() => navigate("/countryItaly")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
-                              alt="Ukraine Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"
+                              alt="Italy Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -185,7 +185,7 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">UKRAINE</div>
+                          <div className="menuitemmeta">Italy</div>
                         </a>
                         <a
                           onClick={() => navigate("/countryGeorgia")}
@@ -204,7 +204,7 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">GEORGIA</div>
+                          <div className="menuitemmeta">Georgia</div>
                         </a>
                         <a
                           onClick={() => navigate("/countryThailand")}
@@ -223,7 +223,26 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">THAILAND</div>
+                          <div className="menuitemmeta">Thailand</div>
+                        </a>
+                        <a
+                          onClick={() => navigate("/countryUkraine")}
+                          className="href"
+                        >
+                          <div className="menuitem">
+                            <img
+                              src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
+                              alt="Ukraine Flag"
+                              style={{
+                                width: 30,
+                                height: 20,
+                                marginRight: 10,
+                                opacity: 1,
+                              }}
+                              className="image"
+                            />
+                          </div>
+                          <div className="menuitemmeta">Ukraine</div>
                         </a>
                       </div>
                     </div>
@@ -267,9 +286,9 @@ const Navbar = () => {
                   sx={{ p: 0 }}
                   color="inherit"
                 >
-                  <Typography sx={{ color: "white" }}>
-                    {`Hello, ${user.email}!`}
-                  </Typography>
+                  <Typography
+                    sx={{ color: "white" }}
+                  >{`Hello, ${user.email}!`}</Typography>
                 </IconButton>
               </Tooltip>
               <Menu
@@ -294,28 +313,43 @@ const Navbar = () => {
                     color: "white",
                     minWidth: "200px",
                     borderRadius: "0",
+                    marginTop: "8px",
+                    "& .MuiMenuItem-root": {
+                      padding: "10px 20px",
+                      justifyContent: "center",
+                      "&:hover": {
+                        backgroundColor: "#444",
+                      },
+                    },
                   },
                 }}
               >
-                <MenuItem onClick={() => navigate("/profile")}>
-                  <Typography textAlign="center" sx={{ color: "white" }}>
-                    Profile
-                  </Typography>
-                </MenuItem>
-                <MenuItem onClick={() => handleLogOut()}>
-                  <Typography textAlign="center" sx={{ color: "white" }}>
-                    Logout
+                <MenuItem
+                  onClick={() => {
+                    handleLogOut();
+                    handleCloseUserMenu();
+                  }}
+                  className="logout-btn"
+                  sx={{
+                    width: "100%",
+                    textAlign: "center",
+                  }}
+                >
+                  <Typography
+                    sx={{ color: "white", width: "100%", textAlign: "center" }}
+                  >
+                    LogOut
                   </Typography>
                 </MenuItem>
               </Menu>
             </>
           ) : (
-            <Link to={"/login"}>
+            <Link to={"/auth"}>
               <Button
                 color="inherit"
-                sx={{ fontSize: "0.9rem", color: "white" }}
+                sx={{ fontSize: "0.9rem", ml: 1, color: "white" }}
               >
-                Login
+                Register
               </Button>
             </Link>
           )}

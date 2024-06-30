@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./CountryPage.module.css";
+import Footer from "../components/homePage/Footer";
 
 const CountryPage = ({ country }) => {
   const [data, setData] = useState(null);
@@ -100,6 +101,7 @@ const CountryPage = ({ country }) => {
           - Augustine of Hippo
         </section>
       </div>
+      <Footer />
     </div>
   );
 };
