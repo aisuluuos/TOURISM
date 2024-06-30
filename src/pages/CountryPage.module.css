@@ -1,0 +1,64 @@
+.countryPageWrapper {
+  background-color: #f8f9fa;
+  color: #343a40;
+  text-align: center;
+  padding: 10px 30px 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.countryPageTitle {
+  font-size: 60px;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #212529;
+  margin: 10px 0;
+  line-height: 1;
+}
+
+.countryPageImageContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.countryPageImage {
+  width: 45%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.countryPageDescription {
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 0 10px;
+}
+
+.countryPageQuoteContainer {
+  background-color: black;
+  padding: 40px;
+  width: 100vw;
+  margin-top: auto;
+  margin-left: calc(-50vw + 50%);
+  box-sizing: border-box;
+}
+
+.countryPageQuote {
+  font-size: 34px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: white;
+  text-align: center;
+  margin: 0;
+}

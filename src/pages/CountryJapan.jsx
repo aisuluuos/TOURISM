@@ -1,7 +1,8 @@
 import React from "react";
+import CountryPage from "./CountryPage";
 
 const CountryJapan = () => {
-  return <div></div>;
+  return <CountryPage country="Japan" />;
 };
 
 export default CountryJapan;

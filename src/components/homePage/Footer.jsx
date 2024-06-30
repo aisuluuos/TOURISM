@@ -6,11 +6,6 @@ import collabLogo from "../homePage/assets/logo.png";
 import { Box, Typography, Link } from "@mui/material";
 
 const Footer = () => {
-  const handleSmoothScroll = (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <Box className="footer-container">
       <Box className="footer-background" />
@@ -24,12 +19,7 @@ const Footer = () => {
           Explore Destinations Around the World
         </Typography>
         <Box className="footer-links">
-          <Link
-            href="#"
-            color="inherit"
-            underline="none"
-            onClick={handleSmoothScroll}
-          >
+          <Link component={RouterLink} to="/" color="inherit" underline="none">
             Home
           </Link>
           <Link
@@ -39,6 +29,56 @@ const Footer = () => {
             underline="none"
           >
             About
+          </Link>
+        </Box>
+        <Box className="footer-countries">
+          <Link
+            component={RouterLink}
+            to="/countryJapan"
+            color="inherit"
+            underline="none"
+          >
+            Japan
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/countryKyrgyzstan"
+            color="inherit"
+            underline="none"
+          >
+            Kyrgyzstan
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/countryIceland"
+            color="inherit"
+            underline="none"
+          >
+            Iceland
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/countryUkraine"
+            color="inherit"
+            underline="none"
+          >
+            Ukraine
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/countryGeorgia"
+            color="inherit"
+            underline="none"
+          >
+            Georgia
+          </Link>
+          <Link
+            component={RouterLink}
+            to="/countryThailand"
+            color="inherit"
+            underline="none"
+          >
+            Thailand
           </Link>
         </Box>
       </Box>

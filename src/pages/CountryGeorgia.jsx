@@ -1,7 +1,8 @@
 import React from "react";
+import CountryPage from "./CountryPage";
 
 const CountryGeorgia = () => {
-  return <div></div>;
+  return <CountryPage country="Georgia" />;
 };
 
 export default CountryGeorgia;
