@@ -20,8 +20,9 @@ const Slider = () => {
       const video = ref.current;
       if (video) {
         if (i === activeIndex) {
-          video.play();
-          video.currentTime = 0;
+          video
+            .play()
+            .catch((error) => console.error("Error playing video:", error));
         } else {
           video.pause();
         }
@@ -35,7 +36,7 @@ const Slider = () => {
         position: "relative",
         width: "100%",
         height: "calc(100vh - 78px)",
-        overflow: "hidden", // Добавлено чтобы скрыть любое лишнее контент
+        overflow: "hidden",
       }}
     >
       {videos.map((video, index) => (
@@ -54,7 +55,7 @@ const Slider = () => {
             top: 0,
             left: 0,
             opacity: index === activeIndex ? 1 : 0,
-            transition: "none", // Убраны все переходы
+            transition: "opacity 0.5s ease-in-out",
           }}
         />
       ))}
