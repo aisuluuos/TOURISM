@@ -1,103 +1,140 @@
-import React, { useState } from "react";
-import { Box, Typography, IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import CommentIcon from "@mui/icons-material/Comment";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import { useNavigate } from "react-router-dom";
-import { useProduct } from "../../context/ProductContextProvider";
-import Detail from "./Detail";
-import CommentModal from "./CommentModal";
-import { useCart } from "../../context/CartContextProvider";
-import { useAuth } from "../../context/AuthContextProvider";
-import { ADMIN } from "../../helpers/const";
-import "./ProductCard.css";
+import React, { createContext, useContext, useReducer } from "react";
+import {
+  calcSubPrice,
+  calcTotalPrice,
+  getLocalStorage,
+  getProductsCountInCart,
+} from "../helpers/functions";
+import { type } from "@testing-library/user-event/dist/type";
 
-const ProductCard = ({ elem }) => {
-  const { deleteProduct, toggleLike } = useProduct();
-  const navigate = useNavigate();
-  const { addProductToCart, checkProductInCart } = useCart();
-  const { user } = useAuth();
-  const [detailOpen, setDetailOpen] = useState(false);
-  const [commentModalOpen, setCommentModalOpen] = useState(false);
+export const cartContext = createContext();
+export const useCart = () => useContext(cartContext);
 
-  const isProductInCart = checkProductInCart(elem.id);
+const CartContextProvider = ({ children }) => {
+  const INIT_STATE = {
+    cart: JSON.parse(localStorage.getItem("cart")),
+    cartLength: getProductsCountInCart(),
+  };
+  const reducer = (state = INIT_STATE, action) => {
+    switch (action.type) {
+      case "GET_CART":
+        return { ...state, cart: action.payload };
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
-  return (
-    <Box sx={{ minHeight: "300px" }} className="content">
-      <img src={elem.image1} className="profession_image" alt="Profession" />
-      <img src={elem.image2} className="profile_image" alt="Profile" />
-      <Box className="profile_detail">
-        <Typography component="span">{elem.country}</Typography>
-        <Typography component="p">{`What is ${elem.country} like?`}</Typography>
-      </Box>
-      <Box className="wrapper">
-        <Box className="profile_quote">
-          <Typography className="desc" component="p">
-            {elem.description}
-          </Typography>
-        </Box>
-        <Box className="icon-container">
-          <IconButton color="warning" onClick={() => setDetailOpen(true)}>
-            <VisibilityIcon />
-          </IconButton>
-          <IconButton
-            color="secondary"
-            onClick={() => setCommentModalOpen(true)}
-          >
-            <CommentIcon />
-          </IconButton>
-          <IconButton
-            onClick={() => toggleLike(elem.id)}
-            sx={{
-              color: elem.isLiked ? "#ff1744" : "#ff5252",
-            }}
-          >
-            {elem.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
-          </IconButton>
-          <IconButton
-            sx={{
-              color: isProductInCart ? "#F06292" : "#4CAF50",
-              "& svg": {
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-              },
-            }}
-            onClick={() => addProductToCart(elem)}
-          >
-            <AddShoppingCartIcon />
-          </IconButton>
+  // ! create
+  // 1)всегда стягивать актуальные данные,2)после выполнения функции обновлять,3)обновить локальное состояние
 
-          {user.email === ADMIN && (
-            <>
-              <IconButton
-                color="primary"
-                onClick={() => navigate(`/edit/${elem.id}`)}
-              >
-                <EditIcon />
-              </IconButton>
-              <IconButton color="error" onClick={() => deleteProduct(elem.id)}>
-                <DeleteIcon />
-              </IconButton>
-            </>
-          )}
-        </Box>
-      </Box>
-      <Detail
-        elem={elem}
-        open={detailOpen}
-        handleClose={() => setDetailOpen(false)}
-      />
-      <CommentModal
-        open={commentModalOpen}
-        handleClose={() => setCommentModalOpen(false)}
-        productId={elem.id}
-      />
-    </Box>
-  );
+  //  функция для добавления товара в корзину
+  const addProductToCart = (product) => {
+    // получаем содержимое из хран-а
+    let cart = getLocalStorage();
+    if (!cart) {
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+    }
+    // создаем обьект который добавим в LocalStorage в массив cart.products
+    let newProduct = {
+      item: product,
+      count: 1,
+      subPrice: product.price,
+    };
+    // проверяем есть ли уже продукт кот-й хотим добавить в корзину
+    let productToFind = cart.products.filter(
+      (elem) => elem.item.id === product.id
+    );
+    // если товар уже добавлен в корзину, то удаляем его из массива cart. products через filter ,в противном случае добавляем его в cart.products
+    if (productToFind.length === 0) {
+      cart.products.push(newProduct);
+    } else {
+      cart.products = cart.products.filter(
+        (elem) => elem.item.id !== product.id
+      );
+    }
+    // пересчитываем totalPrice
+    cart.totalPrice = calcTotalPrice(cart.products);
+    // обновляем
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // обновляем состояние
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+
+  //   ! GET
+  // функция для получения продуктов доб-х корзину из хранилища
+  const getCart = () => {
+    //получаем данные из LocalStorage
+    let cart = getLocalStorage();
+    if (!cart) {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify({ products: [], totalPrice: 0 })
+      );
+      cart = {
+        products: [],
+        totalPrice: 0,
+      };
+      //   обновляем состояние
+      dispatch({
+        type: "GET_CART",
+        payload: cart,
+      });
+    }
+  };
+  // функция для проверки наличии товара в корзине
+  const checkProductInCart = (id) => {
+    let cart = getLocalStorage();
+    if (cart) {
+      let newCart = cart.products.filter((elem) => elem.item.id === id);
+      return newCart.length > 0 ? true : false;
+    }
+  };
+  // функция для изменения стоимости за одну позицию
+  const changeProductCount = (id, value) => {
+    let cart = getLocalStorage();
+    cart.products = cart.products.map((elem) => {
+      if (elem.item.id == id) {
+        elem.count = value;
+        elem.subPrice = calcSubPrice(elem);
+      }
+      return elem;
+    });
+    // обновляем totalPrice
+    cart.totalPrice = calcTotalPrice(cart.products);
+    // обновляем localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+    // обновляем состояние
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+  // ! DELETE
+  const deleteProductFromCart = (id) => {
+    let cart = getLocalStorage();
+    cart.products = cart.products.filter((elem) => elem.item.id !== id);
+    // меняем totalPrice
+    cart.totalPrice = calcTotalPrice(cart.products);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch({
+      type: "GET_CART",
+      payload: cart,
+    });
+  };
+  const values = {
+    cart: state.cart,
+    addProductToCart,
+    checkProductInCart,
+    changeProductCount,
+    deleteProductFromCart,
+    getCart,
+  };
+  return <cartContext.Provider value={values}>{children}</cartContext.Provider>;
 };
 
-export default ProductCard;
+export default CartContextProvider;
