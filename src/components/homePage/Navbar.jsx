@@ -112,13 +112,13 @@ const Navbar = () => {
                       <div className="contitem">
                         <div className="legend">Top Recommendations</div>
                         <a
-                          onClick={() => navigate("/countryIceland")}
+                          onClick={() => navigate("/countryJapan")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
-                              alt="Iceland Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
+                              alt="Japan Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -128,7 +128,7 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">Iceland</div>
+                          <div className="menuitemmeta">Japan</div>
                         </a>
                         <a
                           onClick={() => navigate("/countryKyrgyzstan")}
@@ -150,13 +150,13 @@ const Navbar = () => {
                           <div className="menuitemmeta">Kyrgyzstan</div>
                         </a>
                         <a
-                          onClick={() => navigate("/countryJapan")}
+                          onClick={() => navigate("/countryIceland")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2560px-Flag_of_Japan.svg.png"
-                              alt="Japan Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1280px-Flag_of_Iceland.svg.png"
+                              alt="Iceland Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -166,16 +166,16 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">Japan</div>
+                          <div className="menuitemmeta">Iceland</div>
                         </a>
                         <a
-                          onClick={() => navigate("/countryItaly")}
+                          onClick={() => navigate("/countryUkraine")}
                           className="href"
                         >
                           <div className="menuitem">
                             <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg"
-                              alt="Italy Flag"
+                              src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
+                              alt="Ukraine Flag"
                               style={{
                                 width: 30,
                                 height: 20,
@@ -185,7 +185,7 @@ const Navbar = () => {
                               className="image"
                             />
                           </div>
-                          <div className="menuitemmeta">Italy</div>
+                          <div className="menuitemmeta">Ukraine</div>
                         </a>
                         <a
                           onClick={() => navigate("/countryGeorgia")}
@@ -224,25 +224,6 @@ const Navbar = () => {
                             />
                           </div>
                           <div className="menuitemmeta">Thailand</div>
-                        </a>
-                        <a
-                          onClick={() => navigate("/countryUkraine")}
-                          className="href"
-                        >
-                          <div className="menuitem">
-                            <img
-                              src="https://upload.wikimedia.org/wikipedia/commons/4/49/Flag_of_Ukraine.svg"
-                              alt="Ukraine Flag"
-                              style={{
-                                width: 30,
-                                height: 20,
-                                marginRight: 10,
-                                opacity: 1,
-                              }}
-                              className="image"
-                            />
-                          </div>
-                          <div className="menuitemmeta">Ukraine</div>
                         </a>
                       </div>
                     </div>

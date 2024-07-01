@@ -35,7 +35,13 @@
       "country": "UKRAINE",
       "description": "Ancient castles or natural wonders? Seaside holiday or mountain hiking? It’s hard to believe — but Ukraine has it all. And many more discoveries you wouldn’t expect!",
       "price": 0,
-      "category": "Europe"
+      "category": "Europe",
+      "comments": [
+        {
+          "name": "nnn",
+          "comment": "hhbb"
+        }
+      ]
     },
     {
       "id": 5,
