@@ -5,6 +5,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import CommentIcon from "@mui/icons-material/Comment";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/ProductContextProvider";
 import Detail from "./Detail";
@@ -15,10 +17,10 @@ import { ADMIN } from "../../helpers/const";
 import "./ProductCard.css";
 
 const ProductCard = ({ elem }) => {
-  const { deleteProduct } = useProduct();
+  const { deleteProduct, toggleLike } = useProduct();
   const navigate = useNavigate();
   const { addProductToCart, checkProductInCart } = useCart();
-  const { user } = useAuth(); // Получаем информацию о пользователе
+  const { user } = useAuth();
   const [detailOpen, setDetailOpen] = useState(false);
   const [commentModalOpen, setCommentModalOpen] = useState(false);
 
@@ -38,7 +40,7 @@ const ProductCard = ({ elem }) => {
             {elem.description}
           </Typography>
         </Box>
-        <Box sx={{ display: "flex", gap: "10px", alignItems: "center" }}>
+        <Box className="icon-container">
           <IconButton color="warning" onClick={() => setDetailOpen(true)}>
             <VisibilityIcon />
           </IconButton>
@@ -49,8 +51,16 @@ const ProductCard = ({ elem }) => {
             <CommentIcon />
           </IconButton>
           <IconButton
+            onClick={() => toggleLike(elem.id)}
             sx={{
-              color: isProductInCart ? "#F06292" : "#4CAF50", // Мягкий розовый при добавлении, зелёный изначально
+              color: elem.isLiked ? "#ff1744" : "#ff5252",
+            }}
+          >
+            {elem.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+          <IconButton
+            sx={{
+              color: isProductInCart ? "#F06292" : "#4CAF50",
               "& svg": {
                 fontSize: "1.5rem",
                 fontWeight: "bold",
@@ -60,7 +70,7 @@ const ProductCard = ({ elem }) => {
           >
             <AddShoppingCartIcon />
           </IconButton>
-          {/* Добавлена проверка на админа */}
+
           {user.email === ADMIN && (
             <>
               <IconButton
@@ -75,17 +85,17 @@ const ProductCard = ({ elem }) => {
             </>
           )}
         </Box>
-        <Detail
-          elem={elem}
-          open={detailOpen}
-          handleClose={() => setDetailOpen(false)}
-        />
-        <CommentModal
-          open={commentModalOpen}
-          handleClose={() => setCommentModalOpen(false)}
-          productId={elem.id}
-        />
       </Box>
+      <Detail
+        elem={elem}
+        open={detailOpen}
+        handleClose={() => setDetailOpen(false)}
+      />
+      <CommentModal
+        open={commentModalOpen}
+        handleClose={() => setCommentModalOpen(false)}
+        productId={elem.id}
+      />
     </Box>
   );
 };
