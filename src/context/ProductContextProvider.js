@@ -105,6 +105,17 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
   };
 
+  //! toggleLike
+  const toggleLike = async (productId) => {
+    const { data } = await axios.get(`${API}/${productId}`);
+    const updatedProduct = {
+      ...data,
+      isLiked: !data.isLiked,
+    };
+    await axios.patch(`${API}/${productId}`, updatedProduct);
+    getProducts();
+  };
+
   //! filter
   const fetchByParams = (query, value) => {
     const search = new URLSearchParams(window.location.search);
@@ -131,6 +142,7 @@ const ProductContextProvider = ({ children }) => {
     fetchByParams,
     addComment,
     deleteComment,
+    toggleLike,
   };
 
   return (
