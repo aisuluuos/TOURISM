@@ -31,7 +31,7 @@ const Parallax = () => {
           zIndex: 1,
         }}
       >
-        Traveling
+        TRAVELLING
       </Typography>
     </Box>
   );
