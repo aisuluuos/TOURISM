@@ -82,11 +82,10 @@ body {
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 0fr;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.23, 0.93, 0.77, 1) 0.01s;
-  max-height: 0;
+  transition: grid-template-rows 0.5s cubic-bezier(0.23, 0.93, 0.77, 1) 0.01s;
 }
 
 .profile_quote {
@@ -98,7 +97,7 @@ body {
 }
 
 .content:hover .wrapper {
-  max-height: 1000px;
+  grid-template-rows: 1fr;
 }
 
 .content:hover .profile_quote {
@@ -109,25 +108,4 @@ body {
 .desc {
   font-size: 18px !important;
   line-height: 20px !important;
-}
-
-.icon-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 10px;
-}
-
-@media (max-width: 480px) {
-  .content,
-  .content:hover {
-    width: 100%;
-    max-width: 350px;
-  }
-
-  .icon-container {
-    justify-content: center;
-  }
 }
