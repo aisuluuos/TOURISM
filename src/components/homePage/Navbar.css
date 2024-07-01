@@ -3,6 +3,7 @@
   height: auto;
   max-height: 600px;
   overflow-y: auto;
+  background-color: black !important;
 }
 
 .dtit {
@@ -46,18 +47,18 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  color: #fff !important;
   margin-bottom: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease !important;
   padding: 8px;
   border-radius: 5px;
 }
 
 .href:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  transform: scale(1.02);
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+  transform: translateX(5px);
 }
 
 .menuitem {
@@ -69,31 +70,27 @@
   width: 30px;
   height: 20px;
   margin-right: 10px;
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+.href:hover .menuitem .image {
+  transform: scale(1.1);
+  filter: brightness(1.2) !important;
 }
 
 .menuitemmeta {
-  color: white;
+  color: white !important;
   font-size: 18px;
   font-family: "Inter", sans-serif;
   letter-spacing: 2px;
   font-weight: 300;
+  transition: color 0.3s ease !important;
 }
 
-.menuitem .image {
-  filter: brightness(1);
-}
-
-.menuitem:hover .image {
-  filter: brightness(1.3);
-}
-
-.menuitem:hover .menuitemmeta {
-  color: #ffeb3b;
-}
-
-.menuitem:hover {
-  transform: scale(1.02);
+.href:hover .menuitemmeta {
+  color: #ffeb3b !important;
 }
 
 .logout-btn {
@@ -107,4 +104,74 @@
 .logout-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.02);
+}
+
+.MuiButton-root,
+.MuiIconButton-root {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.MuiButton-root:hover,
+.MuiIconButton-root:hover {
+  transform: translateY(-2px);
+}
+
+img[alt="Logo"] {
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+img[alt="Logo"]:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+a[to="/"] .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+}
+
+#countries-menu-button {
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+#countries-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+  transform: translateY(-2px);
+}
+
+a[to="/about"] .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+}
+
+a[to="/admin"] .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+}
+
+a[to="/cart"] .MuiIconButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+a[to="/cart"] .MuiIconButton-root:hover .MuiSvgIcon-root {
+  color: #ffeb3b !important;
+}
+
+a[to="/auth"] .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
+}
+
+.MuiMenu-paper {
+  background-color: black !important;
+}
+
+.MuiMenuItem-root {
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+.MuiMenuItem-root:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffeb3b !important;
 }
