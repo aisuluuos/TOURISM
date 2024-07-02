@@ -9,9 +9,9 @@ const CommentModal = ({ open, handleClose, productId }) => {
 
   const handleSubmit = () => {
     addComment(productId, { name, comment });
-    setName(""); // Очистка поля имени
-    setComment(""); // Очистка поля комментария
-    handleClose(); // Закрыть модальное окно
+    setName("");
+    setComment("");
+    handleClose();
   };
 
   return (
@@ -26,7 +26,7 @@ const CommentModal = ({ open, handleClose, productId }) => {
           bgcolor: "background.paper",
           boxShadow: 24,
           p: 4,
-          borderRadius: 2, // Закругленные углы
+          borderRadius: 2,
         }}
       >
         <TextField
@@ -34,20 +34,21 @@ const CommentModal = ({ open, handleClose, productId }) => {
           label="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          margin="normal"
-          variant="outlined" // Рамка инпутов
+          margin="dense" // Changed from "normal" to "dense"
+          variant="outlined"
         />
         <TextField
           fullWidth
           label="Comment"
           value={comment}
           onChange={(e) => setComment(e.target.value)}
-          margin="normal"
+          margin="dense" // Changed from "normal" to "dense"
           multiline
           rows={4}
-          variant="outlined" // Рамка инпутов
+          variant="outlined"
         />
         <Button
+          fullWidth // Added fullWidth prop
           variant="contained"
           color="primary"
           onClick={handleSubmit}
