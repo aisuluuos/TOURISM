@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, TextField, Typography, Grid } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { useProduct } from "../../context/ProductContextProvider";
+import CategorySelect from "./CategorySelect";
 
 const EditProduct = () => {
   const { id } = useParams();
@@ -54,7 +55,7 @@ const EditProduct = () => {
     <Box
       sx={{
         maxWidth: 800,
-        margin: "80px auto", // Added top margin here
+        margin: "80px auto",
         padding: 3,
         borderRadius: 2,
         boxShadow: 3,
@@ -133,15 +134,7 @@ const EditProduct = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            name="category"
-            fullWidth
-            label="Category"
-            variant="outlined"
-            size="small"
-            onChange={handleInput}
-            value={product.category}
-          />
+          <CategorySelect handleInput={handleInput} value={product.category} />
         </Grid>
       </Grid>
       <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
