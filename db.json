@@ -8,7 +8,8 @@
       "description": "Japan’s architecture, art, traditions, crafts. Also, its worldwide known pop culture (including manga, anime, and video games). It’s something that definitely only Japan can offer. No other country contains the same characteristics.",
       "price": 0,
       "category": "Asia",
-      "comments": []
+      "comments": [],
+      "isFavorite": true
     },
     {
       "id": 2,
@@ -17,7 +18,8 @@
       "country": "KYRGYZSTAN",
       "description": "A small mountainous country in Central Asia. The mountains are high and wild, sometimes hard to reach and unpredictable. But very beautiful and diverse. The mountains are the main property of Kyrgyzstan and the bulk of tourists come here because of the mountains.",
       "price": 3100,
-      "category": "Asia"
+      "category": "Asia",
+      "isFavorite": true
     },
     {
       "id": 3,

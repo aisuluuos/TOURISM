@@ -1,32 +1,30 @@
-import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
+import { TextField, MenuItem } from "@mui/material";
 import React, { useEffect } from "react";
 import { useProduct } from "../../context/ProductContextProvider";
 
 const CategorySelect = ({ handleInput }) => {
   const { categories, getCategories } = useProduct();
+
   useEffect(() => {
     getCategories();
-  }, [getCategories]);
+  }, []);
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Category</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Category"
-          name="category"
-          onChange={handleInput}
-        >
-          {categories.map((elem) => (
-            <MenuItem key={elem.id} value={elem.name}>
-              {elem.name}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </Box>
+    <TextField
+      select
+      fullWidth
+      label="Category"
+      name="category"
+      onChange={handleInput}
+      variant="outlined"
+      size="small"
+    >
+      {categories.map((elem) => (
+        <MenuItem key={elem.id} value={elem.name}>
+          {elem.name}
+        </MenuItem>
+      ))}
+    </TextField>
   );
 };
 

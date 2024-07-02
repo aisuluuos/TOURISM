@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography, Grid } from "@mui/material";
 import { useProduct } from "../../context/ProductContextProvider";
-import AddCategory from "./AddCategory";
+import { Category } from "@mui/icons-material";
+import CategorySelect from "./CategorySelect";
 
-const AddProduct = () => {
+const AddProduct = ({ onAddCategoryClick }) => {
   const { createProduct } = useProduct();
   const [product, setProduct] = useState({
     image1: "",
@@ -36,15 +37,26 @@ const AddProduct = () => {
   return (
     <Box
       sx={{
-        maxWidth: 600,
+        maxWidth: 800,
         margin: "auto",
         padding: 3,
         borderRadius: 2,
-        boxShadow: 2,
-        backgroundColor: "#fff",
+        boxShadow: 3,
+        backgroundColor: "#f5f5f5",
+        fontFamily: '"Montserrat", sans-serif',
       }}
     >
-      <Typography variant="h5" align="center" gutterBottom>
+      <Typography
+        variant="h5"
+        align="center"
+        gutterBottom
+        sx={{
+          fontSize: "28px",
+          fontWeight: 600,
+          color: "black",
+          marginBottom: "20px",
+        }}
+      >
         Add New Post
       </Typography>
       <Grid container spacing={2}>
@@ -54,7 +66,7 @@ const AddProduct = () => {
             fullWidth
             label="Image URL 1"
             variant="outlined"
-            margin="normal"
+            size="small"
             onChange={handleInput}
           />
         </Grid>
@@ -64,7 +76,7 @@ const AddProduct = () => {
             fullWidth
             label="Image URL 2"
             variant="outlined"
-            margin="normal"
+            size="small"
             onChange={handleInput}
           />
         </Grid>
@@ -74,7 +86,7 @@ const AddProduct = () => {
             fullWidth
             label="Country"
             variant="outlined"
-            margin="normal"
+            size="small"
             onChange={handleInput}
           />
         </Grid>
@@ -84,7 +96,7 @@ const AddProduct = () => {
             fullWidth
             label="Description"
             variant="outlined"
-            margin="normal"
+            size="small"
             onChange={handleInput}
           />
         </Grid>
@@ -95,31 +107,45 @@ const AddProduct = () => {
             type="number"
             label="Price"
             variant="outlined"
-            margin="normal"
+            size="small"
             onChange={handleInput}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField
-            name="category"
-            fullWidth
-            label="Category"
-            variant="outlined"
-            margin="normal"
-            onChange={handleInput}
-          />
+          <CategorySelect handleInput={handleInput} />
         </Grid>
       </Grid>
-      <Button
-        onClick={handleClick}
-        fullWidth
-        variant="contained"
-        color="primary"
-        sx={{ mt: 3 }}
-      >
-        Add Post
-      </Button>
-      <AddCategory />
+      <Box sx={{ display: "flex", gap: 2, mt: 3 }}>
+        <Button
+          onClick={onAddCategoryClick}
+          variant="contained"
+          sx={{
+            flexGrow: 1,
+            maxWidth: "30%",
+            backgroundColor: "black",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#333",
+            },
+          }}
+        >
+          Add Category
+        </Button>
+        <Button
+          onClick={handleClick}
+          variant="contained"
+          sx={{
+            flexGrow: 1,
+            backgroundColor: "black",
+            color: "white",
+            "&:hover": {
+              backgroundColor: "#333",
+            },
+          }}
+        >
+          Add Post
+        </Button>
+      </Box>
     </Box>
   );
 };
