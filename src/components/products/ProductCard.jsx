@@ -7,6 +7,8 @@ import CommentIcon from "@mui/icons-material/Comment";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import { useNavigate } from "react-router-dom";
 import { useProduct } from "../../context/ProductContextProvider";
 import Detail from "./Detail";
@@ -17,7 +19,7 @@ import { ADMIN } from "../../helpers/const";
 import "./ProductCard.css";
 
 const ProductCard = ({ elem }) => {
-  const { deleteProduct, toggleLike } = useProduct();
+  const { deleteProduct, toggleLike, toggleFavorite } = useProduct();
   const navigate = useNavigate();
   const { addProductToCart, checkProductInCart } = useCart();
   const { user } = useAuth();
@@ -53,10 +55,18 @@ const ProductCard = ({ elem }) => {
           <IconButton
             onClick={() => toggleLike(elem.id)}
             sx={{
-              color: elem.isLiked ? "#ff1744" : "#ff5252",
+              color: elem.isLiked ? "#ff1744" : "#ff1744",
             }}
           >
             {elem.isLiked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+          <IconButton
+            onClick={() => toggleFavorite(elem.id)}
+            sx={{
+              color: elem.isFavorite ? "#FFD700" : "#FFD700",
+            }}
+          >
+            {elem.isFavorite ? <BookmarkIcon /> : <BookmarkBorderIcon />}
           </IconButton>
           <IconButton
             sx={{

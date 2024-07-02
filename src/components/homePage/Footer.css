@@ -86,3 +86,14 @@
 .footer-copy {
   font-size: 0.7rem;
 }
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+}
+
+.collab-logo {
+  height: 55px;
+  width: auto;
+  margin-bottom: 3px;
+}

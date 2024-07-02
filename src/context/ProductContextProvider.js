@@ -80,6 +80,18 @@ const ProductContextProvider = ({ children }) => {
     });
   };
 
+  //! filter
+  const fetchByParams = (query, value) => {
+    const search = new URLSearchParams(window.location.search);
+    if (value === "all") {
+      search.delete(query);
+    } else {
+      search.set(query, value);
+    }
+    const url = `${window.location.pathname}?${search}`;
+    navigate(url);
+  };
+
   //! addComment
   const addComment = async (productId, comment) => {
     const { data } = await axios.get(`${API}/${productId}`);
@@ -116,16 +128,15 @@ const ProductContextProvider = ({ children }) => {
     getProducts();
   };
 
-  //! filter
-  const fetchByParams = (query, value) => {
-    const search = new URLSearchParams(window.location.search);
-    if (value === "all") {
-      search.delete(query);
-    } else {
-      search.set(query, value);
-    }
-    const url = `${window.location.pathname}?${search}`;
-    navigate(url);
+  //! toggleFavorite
+  const toggleFavorite = async (productId) => {
+    const { data } = await axios.get(`${API}/${productId}`);
+    const updatedProduct = {
+      ...data,
+      isFavorite: !data.isFavorite,
+    };
+    await axios.patch(`${API}/${productId}`, updatedProduct);
+    getProducts();
   };
 
   const values = {
@@ -143,6 +154,7 @@ const ProductContextProvider = ({ children }) => {
     addComment,
     deleteComment,
     toggleLike,
+    toggleFavorite,
   };
 
   return (

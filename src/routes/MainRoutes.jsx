@@ -13,6 +13,7 @@ import CountryIceland from "../pages/CountryIceland";
 import CountryUkraine from "../pages/CountryUkraine";
 import CountryGeorgia from "../pages/CountryGeorgia";
 import CountryThailand from "../pages/CountryThailand";
+import FavoritesPage from "../pages/FavoritesPage";
 
 const MainRoutes = () => {
   return (
@@ -30,6 +31,7 @@ const MainRoutes = () => {
       <Route path="/countryUkraine" element={<CountryUkraine />} />
       <Route path="/countryGeorgia" element={<CountryGeorgia />} />
       <Route path="/countryThailand" element={<CountryThailand />} />
+      <Route path="/favorites" element={<FavoritesPage />} />
     </Routes>
   );
 };

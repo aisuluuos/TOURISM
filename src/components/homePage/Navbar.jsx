@@ -15,29 +15,40 @@ import {
 import {
   ExpandMore as ExpandMoreIcon,
   ShoppingCartOutlined as ShoppingCartIcon,
+  BookmarkBorder as BookmarkBorderIcon,
 } from "@mui/icons-material";
 import logo from "../homePage/assets/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContextProvider";
 import { getProductsCountInCart } from "../../helpers/functions";
 import { useAuth } from "../../context/AuthContextProvider";
+import { useProduct } from "../../context/ProductContextProvider";
 import { ADMIN } from "../../helpers/const";
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [badgeCount, setBadgeCount] = useState(0);
+  const [cartBadgeCount, setCartBadgeCount] = useState(0);
+  const [favoriteBadgeCount, setFavoriteBadgeCount] = useState(0);
   const { addProductToCart } = useCart();
   const { user, handleLogOut, authListener } = useAuth();
+  const { products } = useProduct();
   const navigate = useNavigate();
 
   useEffect(() => {
-    setBadgeCount(getProductsCountInCart());
+    setCartBadgeCount(getProductsCountInCart());
   }, [addProductToCart]);
 
   useEffect(() => {
     authListener();
   }, [authListener]);
+
+  useEffect(() => {
+    const favoriteCount = products.filter(
+      (product) => product.isFavorite
+    ).length;
+    setFavoriteBadgeCount(favoriteCount);
+  }, [products]);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -252,9 +263,19 @@ const Navbar = () => {
           )}
         </Box>
         <Box sx={{ display: "flex", alignItems: "center" }}>
+          <Link
+            to={"/favorites"}
+            style={{ color: "white", marginRight: "10px" }}
+          >
+            <IconButton color="inherit">
+              <Badge badgeContent={favoriteBadgeCount} color="secondary">
+                <BookmarkBorderIcon />
+              </Badge>
+            </IconButton>
+          </Link>
           <Link to={"/cart"} style={{ color: "white", marginRight: "10px" }}>
             <IconButton color="inherit">
-              <Badge badgeContent={badgeCount} color="success">
+              <Badge badgeContent={cartBadgeCount} color="success">
                 <ShoppingCartIcon />
               </Badge>
             </IconButton>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import "./Footer.css";
 import logo from "../homePage/assets/logo.png";
-import collabLogo from "../homePage/assets/logo.png";
+import collabLogo from "../homePage/assets/collabLogo.png";
 import { Box, Typography, Link } from "@mui/material";
 
 const Footer = () => {
@@ -13,7 +13,11 @@ const Footer = () => {
         <Box className="footer-logos">
           <img src={logo} alt="Main Logo" className="footer-logo" />
           <div className="collab-divider">X</div>
-          <img src={collabLogo} alt="Collab Logo" className="footer-logo" />
+          <img
+            src={collabLogo}
+            alt="Collab Logo"
+            className="footer-logo collab-logo"
+          />
         </Box>
         <Typography variant="h6" className="footer-heading">
           Explore Destinations Around the World
