@@ -198,3 +198,59 @@ dialog {
 dialog a {
   color: whitesmoke;
 }
+
+/* Адаптивные стили для различных разрешений */
+
+/* Для широкоэкранных устройств (2560px и выше) */
+@media screen and (min-width: 2560px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .content {
+    width: 25%;
+  }
+}
+
+/* Для очень широких экранов (1440px - 2559px) */
+@media screen and (min-width: 1440px) and (max-width: 2559px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .content {
+    width: 30%;
+  }
+}
+
+/* Для планшетов и меньших устройств (768px - 1439px) */
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    width: 45%;
+  }
+
+  .profile_detail,
+  .profile_quote {
+    width: 100%;
+  }
+}
+
+/* Для мобильных устройств (до 767px) */
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .profile_detail,
+  .profile_quote {
+    width: 100%;
+  }
+}

@@ -63,7 +63,7 @@ const cardData = [
 
 const Body = () => {
   return (
-    <section className="new-container">
+    <section className="new-container category_container">
       <div className="large-item-container">
         {cardData.slice(0, 1).map((data, index) => (
           <Link to={data.path} key={index} className="new-content large">

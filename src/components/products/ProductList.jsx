@@ -29,6 +29,7 @@ const ProductList = () => {
 
   return (
     <Box
+      className="category_container"
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -46,6 +47,7 @@ const ProductList = () => {
           padding: "1rem",
           paddingBottom: "0.5rem",
           overflowX: "auto",
+          flexWrap: "wrap",
         }}
       >
         {paginatedProducts.map((elem) => (
