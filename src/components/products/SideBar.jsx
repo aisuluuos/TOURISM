@@ -13,16 +13,16 @@ import {
 import { useSearchParams } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import VoiceSearch from "./VoiceSearch";
 
 const SideBar = () => {
   const { categories, getCategories, fetchByParams } = useProduct();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
     getCategories();
   }, []);
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("q") || "");
 
   useEffect(() => {
     const params = {};
@@ -38,6 +38,10 @@ const SideBar = () => {
 
   const handleClearSearch = () => {
     setSearch("");
+  };
+
+  const handleVoiceResult = (result) => {
+    setSearch(result);
   };
 
   return (
@@ -75,6 +79,7 @@ const SideBar = () => {
                   <ClearIcon fontSize="small" />
                 </IconButton>
               )}
+              <VoiceSearch onResult={handleVoiceResult} />
             </InputAdornment>
           ),
           placeholder: "Search...",

@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard";
 import { useSearchParams } from "react-router-dom";
 
 const ProductList = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const { getProducts, products } = useProduct();
   const [page, setPage] = useState(1);
   const itemsPerPage = 3;
@@ -14,15 +14,24 @@ const ProductList = () => {
     getProducts();
   }, [searchParams]);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
-
   const handleChange = (event, value) => {
     setPage(value);
   };
 
-  const paginatedProducts = products.slice(
+  const filteredProducts = products.filter((product) => {
+    const searchTerm = searchParams.get("q") || "";
+    const category = searchParams.get("category");
+
+    // Фильтрация по категории
+    if (category && category !== "all" && product.category !== category) {
+      return false;
+    }
+
+    // Фильтрация по поисковому запросу (только по названию страны)
+    return product.country.toLowerCase().includes(searchTerm.toLowerCase());
+  });
+
+  const paginatedProducts = filteredProducts.slice(
     (page - 1) * itemsPerPage,
     page * itemsPerPage
   );
@@ -55,7 +64,7 @@ const ProductList = () => {
         ))}
       </Box>
       <Pagination
-        count={Math.ceil(products.length / itemsPerPage)}
+        count={Math.ceil(filteredProducts.length / itemsPerPage)}
         page={page}
         onChange={handleChange}
         sx={{
