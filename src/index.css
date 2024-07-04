@@ -238,19 +238,3 @@ dialog a {
     width: 100%;
   }
 }
-
-/* Для мобильных устройств (до 767px) */
-@media screen and (max-width: 767px) {
-  .container {
-    padding: 0.5rem;
-  }
-
-  .content {
-    width: 100%;
-  }
-
-  .profile_detail,
-  .profile_quote {
-    width: 100%;
-  }
-}

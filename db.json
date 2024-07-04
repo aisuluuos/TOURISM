@@ -8,7 +8,20 @@
       "description": "Japan’s architecture, art, traditions, crafts. Also, its worldwide known pop culture (including manga, anime, and video games). It’s something that definitely only Japan can offer. No other country contains the same characteristics.",
       "price": 0,
       "category": "Asia",
-      "comments": [],
+      "comments": [
+        {
+          "name": "dan",
+          "comment": "nice place!"
+        },
+        {
+          "name": "sam h",
+          "comment": "it was a great trip"
+        },
+        {
+          "name": "michael",
+          "comment": "5 star review"
+        }
+      ],
       "isFavorite": true
     },
     {
@@ -19,7 +32,17 @@
       "description": "A small mountainous country in Central Asia. The mountains are high and wild, sometimes hard to reach and unpredictable. But very beautiful and diverse. The mountains are the main property of Kyrgyzstan and the bulk of tourists come here because of the mountains.",
       "price": 3100,
       "category": "Asia",
-      "isFavorite": true
+      "isFavorite": true,
+      "comments": [
+        {
+          "name": "talia",
+          "comment": "beautiful landscape"
+        },
+        {
+          "name": "rio",
+          "comment": "breathtaking views"
+        }
+      ]
     },
     {
       "id": 3,
@@ -28,7 +51,19 @@
       "country": "ICELAND",
       "description": "Iceland, the land of fire and ice, has become a popular travel destination over the past few years. From the country’s magnificent glaciers, thundering waterfalls and epic natural nighttime displays, it’s easy to see why travelers are escaping to the edge of the world.",
       "price": 300,
-      "category": "Europe"
+      "category": "Europe",
+      "isFavorite": true,
+      "isLiked": true,
+      "comments": [
+        {
+          "name": "bob",
+          "comment": "nice tour"
+        },
+        {
+          "name": "ray",
+          "comment": "5 star experience"
+        }
+      ]
     },
     {
       "id": 4,
