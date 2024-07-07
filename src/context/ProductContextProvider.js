@@ -94,48 +94,35 @@ const ProductContextProvider = ({ children }) => {
 
   //! addComment
   const addComment = async (productId, comment) => {
-    const { data } = await axios.get(`${API}/${productId}`);
-    const updatedProduct = {
-      ...data,
-      comments: [...(data.comments || []), comment],
-    };
-    await axios.patch(`${API}/${productId}`, updatedProduct);
+    await axios.patch(`${API}/${productId}`, {
+      comments: [
+        ...((await (await axios.get(`${API}/${productId}`)).data.comments) ||
+          []),
+        comment,
+      ],
+    });
     getProducts();
   };
 
   //! deleteComment
   const deleteComment = async (productId, commentIndex) => {
     const { data } = await axios.get(`${API}/${productId}`);
-    const updatedComments = data.comments.filter(
-      (_, index) => index !== commentIndex
-    );
-    const updatedProduct = {
-      ...data,
-      comments: updatedComments,
-    };
-    await axios.patch(`${API}/${productId}`, updatedProduct);
+    data.comments.splice(commentIndex, 1);
+    await axios.patch(`${API}/${productId}`, { comments: data.comments });
     getProducts();
   };
 
   //! toggleLike
   const toggleLike = async (productId) => {
     const { data } = await axios.get(`${API}/${productId}`);
-    const updatedProduct = {
-      ...data,
-      isLiked: !data.isLiked,
-    };
-    await axios.patch(`${API}/${productId}`, updatedProduct);
+    await axios.patch(`${API}/${productId}`, { isLiked: !data.isLiked });
     getProducts();
   };
 
   //! toggleFavorite
   const toggleFavorite = async (productId) => {
     const { data } = await axios.get(`${API}/${productId}`);
-    const updatedProduct = {
-      ...data,
-      isFavorite: !data.isFavorite,
-    };
-    await axios.patch(`${API}/${productId}`, updatedProduct);
+    await axios.patch(`${API}/${productId}`, { isFavorite: !data.isFavorite });
     getProducts();
   };
 

@@ -2,52 +2,48 @@ import React, { useState } from "react";
 import { IconButton } from "@mui/material";
 import MicIcon from "@mui/icons-material/Mic";
 
-// Компонент, который ловит голос и делает поиск
 const VoiceSearch = ({ onResult }) => {
-  // Запоминаем, слушаем ли мы сейчас голос
+  // слушает ли сейчас голос
   const [isListening, setIsListening] = useState(false);
 
-  // Чё делать, когда жмём на кнопку
   const handleVoiceSearch = () => {
-    setIsListening(true); // Говорим, что начали слушать
+    setIsListening(true); // начал слушать
     const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition; // Браузер поддерживает голос? Проверь!
+      window.SpeechRecognition || window.webkitSpeechRecognition; // проверка на то что работает
 
     if (SpeechRecognition) {
-      const recognition = new SpeechRecognition(); // Создаем штуку для распознавания речи
-      recognition.lang = "en-US"; // Слушаем на английском
-      recognition.start(); // Поехали!
+      const recognition = new SpeechRecognition(); // распознавания речи
+      recognition.lang = "en-US";
+      recognition.start();
 
-      // Что делать, когда голос распознан
+      // когда голос распознан
       recognition.onresult = (event) => {
-        const transcript = event.results[0][0].transcript; // Берем то, что человек сказал
-        onResult(transcript); // Передаем текст туда, где будем его использовать
-        setIsListening(false); // Хватит слушать
+        const transcript = event.results[0][0].transcript; // то что сказал
+        onResult(transcript); // передаёт текст в поиск.
+        setIsListening(false); // прекращает слушать
       };
 
-      // Если что-то пошло не так
+      // если всё пошло неправильно
       recognition.onerror = (event) => {
-        console.error("Ошибка в распознавании", event.error); // Показываем ошибку в консоли
-        setIsListening(false); // Перестаем слушать
+        console.error("Ошибка в распознавании", event.error); // показ ошибки
+        setIsListening(false); // прекращает слушать
       };
 
-      // Когда закончили слушать
+      // когда закончил слушать
       recognition.onend = () => {
-        setIsListening(false); // Заканчиваем прослушивание
+        setIsListening(false); // прекращает слушать
       };
     } else {
-      // Если браузер не может слушать
-      alert("Твой браузер не шарит за распознавание речи."); // Сообщаем об этом
+      alert("Твой браузер не шарит за распознавание речи.");
     }
   };
 
   return (
-    // Кнопка с микрофоном, которая запускает прослушивание
     <IconButton
-      onClick={handleVoiceSearch} // Когда жмешь на кнопку, слушаем голос
-      color={isListening ? "secondary" : "default"} // Если слушаем, кнопка другого цвета
+      onClick={handleVoiceSearch}
+      color={isListening ? "secondary" : "default"}
     >
-      <MicIcon fontSize="small" /> {/* Иконка микрофона */}
+      <MicIcon fontSize="small" />
     </IconButton>
   );
 };
